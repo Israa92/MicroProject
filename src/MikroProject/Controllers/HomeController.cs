@@ -13,6 +13,7 @@ namespace MikroProject.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        //nothing
         UserManager<IdentityUser> _userManager;
         SignInManager<IdentityUser> _signInManager;
         IdentityDbContext _identityContext;
