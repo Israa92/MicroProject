@@ -44,14 +44,14 @@ namespace MikroProject.Controllers
 
             await _identityContext.Database.EnsureCreatedAsync();
 
-            //var result = await _userManager.CreateAsync(new IdentityUser(
-            //    viewModel.LoginName), viewModel.Password);
+            var result = await _userManager.CreateAsync(new IdentityUser(
+                viewModel.LoginName), viewModel.Password);
 
-            //if (!result.Succeeded)
-            //{
-            //    ModelState.AddModelError(nameof(LoginViewModel.Password), result.Errors.First().Description);
-            //    return View(viewModel);
-            //}
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError(nameof(LoginViewModel.Password), result.Errors.First().Description);
+                return View(viewModel);
+            }
 
             //logga in användaren
             await _signInManager.PasswordSignInAsync(viewModel.LoginName, viewModel.Password,
