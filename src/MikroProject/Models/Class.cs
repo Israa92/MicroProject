@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace MikroProject.Models
 {
-    public class Admin
+    public class Class
     {
         public int Id { get; set; }
-        public string LoginName { get; set; }
-        public string Password { get; set; }
+        public string Name { get; set; }
+        public string Student { get; set; }
     }
 }

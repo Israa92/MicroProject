@@ -1,0 +1,23 @@
+﻿@addTagHelper "*,Microsoft.AspNet.Mvc.TagHelpers"
+@using MikroProject.ViewModels
+@model LoginViewModel
+
+<html>
+<body>
+    <h1>Login</h1>
+
+    <form>
+        <label asp-for="LoginName"></label>
+        <br />
+        <input asp-for="LoginName"/>
+        <span asp-validation-for="LoginName"></span>
+        <br />
+        <label asp-for="Password"></label>
+        <br />
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+        <br />
+        <input type="submit" value="Log in"/>
+    </form>
+</body>
+</html>
