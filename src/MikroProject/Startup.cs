@@ -8,6 +8,8 @@ using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Data.Entity;
 using MikroProject.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 
 namespace MikroProject
 {
@@ -17,31 +19,30 @@ namespace MikroProject
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //var connStrig = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Adminstration;Integrated Security=True;Pooling=False";
+            var connStrig = @"Data Source=(localdb)\mssqllocaldb;Initial Catalog=IdentityDemoDB;Integrated Security=True";
 
-            //services.AddEntityFramework()
-            //    .AddSqlServer()
-            //    .AddDbContext<IdentityDbContext>(options =>
-            //    options.UseSqlServer(connStrig));
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<IdentityDbContext>(options =>
+                options.UseSqlServer(connStrig));
 
-            //services.AddEntityFramework()
-            //    .AddSqlServer()
-            //    .AddDbContext<AdminContext>(options =>
-            //    options.UseSqlServer(connStrig));
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<AdminContext>(options =>
+                options.UseSqlServer(connStrig));
 
-            //services.AddIdentity<IdentityUser, IdentityRole>()
-            //    .AddEntityFrameworkStores<IdentityDbContext>()
-            //    .AddDefaultTokenProviders();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<IdentityDbContext>()
+                .AddDefaultTokenProviders();
 
             services.AddMvc();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
-            app.UseIISPlatformHandler();
             app.UseDeveloperExceptionPage();
+            app.UseIdentity();
             app.UseMvcWithDefaultRoute();
         }
 
