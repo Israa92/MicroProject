@@ -1,0 +1,19 @@
+﻿@model StudentViewModel
+
+
+<h1> Created Students</h1>
+
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>ID Number</th>
+    </tr>
+    @foreach (var item in Student)
+    {
+        <tr>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.IDNumber</td>
+        </tr>
+    </table>
