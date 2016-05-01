@@ -45,7 +45,7 @@ namespace MikroProject.Controllers
         {
             return _context.Student
                 .Select(r => new StudentViewModel
-                {
+        {
                     Id = r.Id,
                     FirstName = r.FirstName,
                     LastName = r.LastName,
@@ -53,6 +53,31 @@ namespace MikroProject.Controllers
                     Class = r.Class,
                 })
             .ToArray();
+        }
+        public IActionResult CreateStudent()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateStudent(StudentViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var student = new Student();
+            student.Id = model.Id;
+
+            // Add to DB
+            _context.Student.Add(student);
+            _context.SaveChanges();
+
+            return RedirectToAction("CreatedStudent");
+
+        }
+        public IActionResult CreatedStudent()
+        {
+            return View();
         }
     }
 }
