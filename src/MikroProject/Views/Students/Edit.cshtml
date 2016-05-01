@@ -1,0 +1,25 @@
+﻿@model StudentViewModel
+
+<html>
+<body>
+    <form asp-controller="Students" asp-action="Edit">
+        <label asp-for="FirstName"></label>
+        <br />
+        <input asp-for="FirstName" />
+        <br />
+        <label asp-for="LastName"></label>
+        <br />
+        <input asp-for="LastName" />
+        <br />
+        <label asp-for="IDNumber"></label>
+        <br />
+        <input asp-for="IDNumber" />
+        <br />
+        <label asp-for="Class"></label>
+        <br />
+        <input asp-for="Class" />
+        <br />
+        <input type="submit" value="Save"/>
+    </form>
+</body>
+</html>

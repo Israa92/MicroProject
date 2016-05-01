@@ -1,5 +1,28 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model StudentViewModel
+<html>
+<body>
+    <div>
+        <div>
+            <h2>@Model.FirstName</h2>
+            <b>@Model.FirstName</b>
+            <br />
+            <br />
+            <label asp-for="LastName"></label>
+            <p>@Model.LastName</p>
+            <br />
+            <br />
+            <label asp-for="IDNumber"></label>
+            <p>@Model.IDNumber</p>
+            <br />
+            <br />
+            <label asp-for="Class"></label>
+            <p>@Model.Class</p>
+        </div>
+        <br />
+        <div>
+            <a asp-action="edit" asp-route-id="@Model.Id">Redigera</a>
+        </div>
+    </div>   
+</body>
+</html>
+
