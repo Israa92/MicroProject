@@ -1,0 +1,41 @@
+﻿@model StudentViewModel
+
+<html>
+<body>
+    <h1>Create Student</h1>
+
+    <form asp-action="Create Instructor">
+        <label asp-for="Id"></label>
+        <br />
+        <input asp-for="Id" />
+        <span asp-validation-for="Id"></span>
+        <br />
+        <label asp-for="FirstName"></label>
+        <br />
+        <input asp-for="FirstName" />
+        <span asp-validation-for="FirstName"></span>
+        <br />
+        <label asp-for="LastName"></label>
+        <br />
+        <input asp-for="LastName" />
+        <span asp-validation-for="LastName"></span>
+        <br />
+        <label asp-for="IDNumber"></label>
+        <br />
+        <input asp-for="IDNumber" />
+        <span asp-validation-for="IDNumber"></span>
+        <br />
+        <label asp-for="Class"></label>
+        <br />
+        <input asp-for="Class" />
+        <span asp-validation-for="Class"></span>
+        <br />
+
+        <input type="submit" value="Create Student" />
+    </form>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
