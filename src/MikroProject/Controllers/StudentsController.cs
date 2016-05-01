@@ -8,7 +8,7 @@ using Microsoft.AspNet.Mvc;
 
 namespace MikroProject.Controllers
 {
-    public class Students : Controller
+    public class StudentsController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()

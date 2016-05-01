@@ -42,6 +42,7 @@ namespace MikroProject
         public void Configure(IApplicationBuilder app)
         {
             app.UseDeveloperExceptionPage();
+            app.UseStaticFiles();
             app.UseIdentity();
             app.UseMvcWithDefaultRoute();
         }
