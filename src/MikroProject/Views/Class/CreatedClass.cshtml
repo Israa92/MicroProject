@@ -1,0 +1,17 @@
+﻿@model ClassViewModel
+
+<h1> Created Class</h1>
+
+<table>
+    <tr>
+        <th> Classroom Name</th>
+        <th>Student Name</th>
+    </tr>
+    @foreach (var item in Class)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Student</td>
+        </tr>
+    }
+</table>
