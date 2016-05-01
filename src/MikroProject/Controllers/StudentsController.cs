@@ -12,11 +12,15 @@ namespace MikroProject.Controllers
 {
     public class StudentsController : Controller
     {
-        AdminContext context;
+        AdminContext _context;
+        public StudentsController(AdminContext context)
+        {
+            _context = context;
+        }
         // GET: /<controller>/
         public StudentViewModel Edit(int id)
         {
-            var student = context.Student.FirstOrDefault(s => s.Id == id);
+            var student = _context.Student.FirstOrDefault(s => s.Id == id);
             return new StudentViewModel
             {
                 FirstName = student.FirstName,
@@ -28,18 +32,18 @@ namespace MikroProject.Controllers
 
         public void Update(StudentViewModel editModel)
         {
-            var student = context.Student.FirstOrDefault(s => s.Id == editModel.Id);
+            var student = _context.Student.FirstOrDefault(s => s.Id == editModel.Id);
             student.FirstName = editModel.FirstName;
             student.LastName = editModel.LastName;
             student.IDNumber = editModel.IDNumber;
             student.Class = editModel.Class;
 
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public StudentViewModel[] GetAllStudents()
         {
-            return context.Student
+            return _context.Student
                 .Select(r => new StudentViewModel
                 {
                     Id = r.Id,
