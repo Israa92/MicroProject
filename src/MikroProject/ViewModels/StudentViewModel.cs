@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MikroProject.ViewModels
 {
-    public class StrudentViewModel
+    public class StudentViewModel
     {
         public int Id { get; set; }
     }
