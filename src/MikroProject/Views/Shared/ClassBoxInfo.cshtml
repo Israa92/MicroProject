@@ -1,5 +1,24 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model ClassViewModel
+<html>
+<body>
+    <div>
+        <div>
+            <h2>@Model.Name</h2>
+            <b>@Model.Name</b>
+            <br />
+            <br />
+            <label asp-for="Student"></label>
+            <p>@Model.Student</p>
+            <br />
+            <br />
+            
+        </div>
+        <br />
+        <div>
+
+            <a asp-action="CreateClass">Skapa Klassrum</a>
+
+        </div>
+    </div>
+</body>
+</html>
