@@ -77,7 +77,11 @@ namespace MikroProject.Controllers
                 return View();
 
             var student = new Student();
-            student.Id = model.Id;
+            student.FirstName = model.FirstName;
+            student.LastName = model.LastName;
+            student.IDNumber = model.IDNumber;
+            student.Class = model.Class;
+            
 
             // Add to DB
             _context.Student.Add(student);
