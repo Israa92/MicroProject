@@ -18,28 +18,28 @@ namespace MikroProject.Controllers
             _context = context;
         }
         // GET: /<controller>/
-        public StudentViewModel Edit(int id)
-        {
-            var student = _context.Student.FirstOrDefault(s => s.Id == id);
-            return new StudentViewModel
-            {
-                FirstName = student.FirstName,
-                LastName = student.LastName,
-                IDNumber = student.IDNumber,
-                Class = student.Class,
-            };
-        }
+        //public StudentViewModel Edit(int id)
+        //{
+        //    var student = _context.Student.FirstOrDefault(s => s.Id == id);
+        //    return new StudentViewModel
+        //    {
+        //        FirstName = student.FirstName,
+        //        LastName = student.LastName,
+        //        IDNumber = student.IDNumber,
+        //        Class = student.Class,
+        //    };
+        //}
 
-        public void Update(StudentViewModel editModel)
-        {
-            var student = _context.Student.FirstOrDefault(s => s.Id == editModel.Id);
-            student.FirstName = editModel.FirstName;
-            student.LastName = editModel.LastName;
-            student.IDNumber = editModel.IDNumber;
-            student.Class = editModel.Class;
+        //public void Update(StudentViewModel editModel)
+        //{
+        //    var student = _context.Student.FirstOrDefault(s => s.Id == editModel.Id);
+        //    student.FirstName = editModel.FirstName;
+        //    student.LastName = editModel.LastName;
+        //    student.IDNumber = editModel.IDNumber;
+        //    student.Class = editModel.Class;
 
-            _context.SaveChanges();
-        }
+        //    _context.SaveChanges();
+        //}
 
         public StudentViewModel[] GetAllStudents()
         {
@@ -54,6 +54,40 @@ namespace MikroProject.Controllers
                 })
             .ToArray();
         }
+
+        public IActionResult Update()
+        {
+            return View(GetAllStudents());
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var student = _context.Student.FirstOrDefault(s => s.Id == id);
+            StudentViewModel viewModel = new StudentViewModel
+            {
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                IDNumber = student.IDNumber,
+                Class = student.Class,
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(StudentViewModel editModel)
+        {
+            //StudentViewModel editModel = new StudentViewModel;
+
+            var student = _context.Student.FirstOrDefault(s => s.Id == editModel.Id);
+            student.FirstName = editModel.FirstName;
+            student.LastName = editModel.LastName;
+            student.IDNumber = editModel.IDNumber;
+            student.Class = editModel.Class;
+
+            _context.SaveChanges();
+            return RedirectToAction("update");
+        }
+
         public IActionResult CreateStudent()
         {
             return View();
@@ -72,12 +106,12 @@ namespace MikroProject.Controllers
             _context.Student.Add(student);
             _context.SaveChanges();
 
-            return RedirectToAction("CreatedStudent");
+            return RedirectToAction("update");
 
         }
-        public IActionResult CreatedStudent()
-        {
-            return View();
-        }
+        //public IActionResult CreatedStudent()
+        //{
+        //    return View();
+        //}
     }
 }

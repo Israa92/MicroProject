@@ -1,28 +1,15 @@
-﻿@model StudentViewModel
+﻿@model StudentViewModel[]
 <html>
 <body>
-    <div>
-        <div>
-            <h2>@Model.FirstName</h2>
-            <b>@Model.FirstName</b>
-            <br />
-            <br />
-            <label asp-for="LastName"></label>
-            <p>@Model.LastName</p>
-            <br />
-            <br />
-            <label asp-for="IDNumber"></label>
-            <p>@Model.IDNumber</p>
-            <br />
-            <br />
-            <label asp-for="Class"></label>
-            <p>@Model.Class</p>
-        </div>
-        <br />
-        <div>
-            <a asp-action="edit" asp-route-id="@Model.Id">Redigera</a>
-        </div>
-    </div>   
+
+    @foreach (var item in Model)
+    {
+
+        @Html.Partial("StudentBoxInfo", item)
+
+    }
 </body>
 </html>
+
+
 
