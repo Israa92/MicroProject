@@ -42,6 +42,47 @@ namespace MikroProject.Controllers
         {
             return View();
         }
+
+        public ClassViewModel[] GetAllClasses()
+        {
+            return _context.Class
+                .Select(r => new ClassViewModel
+                {
+                    Id = r.Id,
+                    Name =r.Name,
+                    Student = r.Student,
+                })
+            .ToArray();
+        }
+
+        public IActionResult Update()
+        {
+            return View(GetAllClasses());
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var classRoom = _context.Class.FirstOrDefault(s => s.Id == id);
+            ClassViewModel viewModel = new ClassViewModel
+            {
+                Name = classRoom.Name,
+                Student = classRoom.Student,
+               
+            };
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(ClassViewModel editModel)
+        {
+
+            var classRoom = _context.Class.FirstOrDefault(s => s.Id == editModel.Id);
+            classRoom.Name = editModel.Name;
+            classRoom.Student = editModel.Student;
+
+            _context.SaveChanges();
+            return RedirectToAction("UpdateClass");
+        }
     }
 }
 

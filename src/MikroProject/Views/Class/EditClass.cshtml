@@ -1,0 +1,17 @@
+﻿@model ClassViewModel
+
+<html>
+<body>
+    <form asp-controller="Class" asp-action="EditClass">
+        <label asp-for="Name"></label>
+        <br />
+        <input asp-for="Name" />
+        <br />
+        <label asp-for="Student"></label>
+        <br />
+        <input asp-for="Student" />
+        <br />
+        <input type="submit" value="Save" />
+    </form>
+</body>
+</html>

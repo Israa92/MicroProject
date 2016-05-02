@@ -1,0 +1,12 @@
+﻿@model ClassViewModel[]
+<html>
+<body>
+
+    @foreach (var item in Model)
+    {
+
+        @Html.Partial("ClassBoxInfo", item)
+
+    }
+</body>
+</html>

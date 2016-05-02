@@ -17,29 +17,6 @@ namespace MikroProject.Controllers
         {
             _context = context;
         }
-        // GET: /<controller>/
-        //public StudentViewModel Edit(int id)
-        //{
-        //    var student = _context.Student.FirstOrDefault(s => s.Id == id);
-        //    return new StudentViewModel
-        //    {
-        //        FirstName = student.FirstName,
-        //        LastName = student.LastName,
-        //        IDNumber = student.IDNumber,
-        //        Class = student.Class,
-        //    };
-        //}
-
-        //public void Update(StudentViewModel editModel)
-        //{
-        //    var student = _context.Student.FirstOrDefault(s => s.Id == editModel.Id);
-        //    student.FirstName = editModel.FirstName;
-        //    student.LastName = editModel.LastName;
-        //    student.IDNumber = editModel.IDNumber;
-        //    student.Class = editModel.Class;
-
-        //    _context.SaveChanges();
-        //}
 
         public StudentViewModel[] GetAllStudents()
         {
